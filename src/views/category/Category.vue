@@ -1,10 +1,13 @@
 <template>
-  <div>params</div>
+  <div>
+    category
+  </div>
+
 </template>
 
 <script>
  export default {
-  name: "params"
+  name: "category"
  }
 </script>
 

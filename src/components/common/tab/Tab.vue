@@ -1,7 +1,25 @@
 <template>
-  <div class="tab">
-    <tab-item url="/product">产品介绍</tab-item>
-    <tab-item url="/params">产品参数</tab-item>
+  <div id="tab">
+    <tab-item link="/home" >
+      <template v-slot:normal><img src="~assets/img/tab/home.png" alt=""></template>
+      <template v-slot:active><img src="~assets/img/tab/homeActive.png" alt=""></template>
+      <template v-slot:text>首页</template>
+    </tab-item>
+    <tab-item link="/category">
+      <template v-slot:normal><img src="~assets/img/tab/about.png" alt=""></template>
+      <template v-slot:active><img src="~assets/img/tab/aboutActive.png" alt=""></template>
+      <template v-slot:text>分类</template>
+    </tab-item>
+    <tab-item link="/car">
+      <template v-slot:normal><img src="~assets/img/tab/car.png" alt=""></template>
+      <template v-slot:active><img src="~assets/img/tab/carActive.png" alt=""></template>
+      <template v-slot:text>购物车</template>
+    </tab-item>
+    <tab-item link="/profile">
+      <template v-slot:normal><img src="~assets/img/tab/profile.png" alt=""></template>
+      <template v-slot:active><img src="~assets/img/tab/profileActive.png" alt=""></template>
+      <template v-slot:text>我的</template>
+    </tab-item>
   </div>
 </template>
 
@@ -9,19 +27,25 @@
  import TabItem from './TabItem'
 
  export default {
-  components: {TabItem},
   name: "tab",
-  component:{
+  components: {
    TabItem
-  },
+  }
  }
 </script>
 
 <style scoped>
-.tab{
-  width:100%;
-  background-color: lightgray;
-  border-bottom: solid 1px #999;
-  display: flex;
-}
+  #tab {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
+    height: 4.9rem;
+    width: 100%;
+    border-top: solid 1px #999;
+    display: flex;
+    align-items: center;
+    background-color: pink;
+  }
+
 </style>

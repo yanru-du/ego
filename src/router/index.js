@@ -1,56 +1,47 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-Vue.use(VueRouter);
+import Home from 'views/home/Home'
 
-import Login from 'views/login/Login'
-import Layout from 'views/layout/Layout'
-import Product from 'views/product/Product'
-import Params from 'views/params/Params'
+Vue.use(VueRouter);
+//解决路由重复问题
+const originalPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function(location){
+ return originalPush.call(this,location).catch(err => err )
+};
 
 const routes = [
- // 登录页面
  {
-  path: "/login",
-  name: 'login',
-  component: Login
+  path:'',
+  redirect:'/home',
  },
- // 内容显示内面
-
  {
-  path: '/',
-  name: "layout",
-  component: Layout,
-  children:[
-   {
-    path:"",
-    redirect:"product"
-   },
-   {
-    path:"product",
-    name:"product",
-    component:Product,
-    meta: {
-     isLogin: true,
-    },
-   },
-   {
-    path:"params",
-    name:"params",
-    component:Params,
-    meta: {
-     isLogin: true,
-    },
-   },
-  ]
- }
-]
+  path:"/home",
+  name:'home',
+  component:Home
+ },
+ {
+  path:"/category",
+  name:'category',
+  component:()=>import('views/category/Category')
+ },
+ {
+  path:"/car",
+  name:'car',
+  component:()=>import('views/car/Car')
+ },
+ {
+  path:"/profile",
+  name:'profile',
+  component:()=>import('views/profile/Profile')
+ },
+];
 
 
 const router = new VueRouter({
  mode: 'history',
  base: process.env.BASE_URL,
  routes
-})
+});
 
 export default router

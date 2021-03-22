@@ -1,13 +1,13 @@
 <template>
   <div>
-    login
+    profile
   </div>
 </template>
 
 <script>
-  export default {
-    name: "login"
-  }
+ export default {
+  name: "profile"
+ }
 </script>
 
 <style scoped>
