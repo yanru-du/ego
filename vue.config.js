@@ -14,15 +14,15 @@ module.exports = {
   },
  },
  // 解决跨域
- // devServer:{
- //    proxy:{
- //      '/api':{
- //        target:"http:localhost:8080",
- //       changeOrigin:true,
- //       pathRewrite:{
- //          "^/api":""
- //       }
- //      }
- //    }
- // },
+ devServer: {
+  proxy: {
+   '/api': {
+    target: "http://152.136.185.210:7878/api/m5",
+    changeOrigin: true,
+    pathRewrite: {
+     "^/api": ""
+    }
+   }
+  }
+ },
 }

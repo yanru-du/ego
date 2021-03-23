@@ -2,7 +2,7 @@ import Axios from 'axios'
 
 // 1.创建axios的实例
 const service = Axios.create({
- baseURL: "http://152.136.185.210:7878/api/m5",
+ baseURL: "",
  timeout: 5000
 });
 // 2.axios请求拦截

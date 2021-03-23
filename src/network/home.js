@@ -2,5 +2,5 @@
 import {axios} from './index'
 
 export const getMultidataData = ()=>{
- return axios.get('/home/multidata')
+ return axios.get('api/home/multidata')
 }
