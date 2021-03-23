@@ -5,7 +5,7 @@
   -->
 <template>
   <div class="tab">
-      <tab-item v-for="(item,index) in tabList" :key="index" ><span :class="{active:currentIndex === index}" @click="TabClickHandle(item.flag)">{{item.data}}</span>
+      <tab-item v-for="(item,index) in tab" :key="index" ><span :class="{active:currentIndex === index}" @click="TabClickHandle(item.flag)">{{item.data}}</span>
       </tab-item>
   </div>
 </template>
@@ -15,7 +15,7 @@
 
  export default {
   name: "tab",
-  props: ['tabList','currentIndex'],
+  props: ['tab','currentIndex'],
   components: {
    TabItem
   },

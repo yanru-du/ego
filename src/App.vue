@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view if="isRouterAlive"></router-view>
+    <keep-alive><router-view if="isRouterAlive"></router-view></keep-alive>
     <Tab/>
   </div>
 </template>

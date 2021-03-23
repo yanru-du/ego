@@ -45,6 +45,15 @@ table {
   border-spacing: 0;
 }
 
+a{
+  text-decoration:none;
+  border: none;
+  color: #000;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  -webkit-user-select: none;
+  -moz-user-focus: none;
+  -moz-user-select: none;
+}
 .clearfix::after{
   content: '';
   display: block;
