@@ -1,7 +1,11 @@
 <template>
   <div class="swiper">
-    <mt-swipe :auto="2000" >
-      <mt-swipe-item v-for="(item,index) in banner"><img :src="item.image" alt="" class="bannerImg"></mt-swipe-item>
+    <mt-swipe :auto="2000">
+      <mt-swipe-item v-for="(item,index) in banner">
+        <a :href="item.link">
+          <img :src="item.image" alt="" class="bannerImg">
+        </a>
+      </mt-swipe-item>
     </mt-swipe>
   </div>
 </template>
@@ -10,9 +14,6 @@
  export default {
   name: "swiper",
   props: ['banner'],
-  mounted() {
-   console.log(this.banner);
-  }
  }
 </script>
 

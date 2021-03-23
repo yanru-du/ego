@@ -8,9 +8,6 @@
  export default {
   name: "recommend",
   props: ['recommend'],
-  created() {
-   console.log(this.recommend);
-  }
  }
 </script>
 
@@ -21,6 +18,7 @@
     align-items: center;
     flex-wrap: wrap;
     padding: 1rem 0;
+    border-bottom: 1px solid rgba(0,0,0,.1);
   }
 
   .recommendImg {

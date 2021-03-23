@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <router-view if="isRouterAlive"></router-view>
     <Tab/>
   </div>
 </template>
@@ -10,9 +10,37 @@
 
  export default {
   name: 'app',
+  provide() {
+   return {
+    reload: this.reload
+   }
+  },
+  data() {
+   return {
+    isRouterAlive: true
+   }
+  },
   components: {
    Tab
-  }
+  },
+  methods: {
+   reload(...params) {
+    if (params) {
+     params.forEach(item => {
+      item.isGetData = false;
+      this.$nextTick(() => {
+       item.isGetData = true
+      })
+     })
+    } else {
+     this.isRouterAlive = false;
+     this.$nextTick(() => {
+      this.isRouterAlive = true
+     })
+    }
+
+   },
+  },
  }
 </script>
 
