@@ -46,6 +46,11 @@
     probeType: this.probeType,     // 是否监听滚动.
     pullUpLoad: this.pullUpLoad,   //是否上拉加载更多
     pullDownRefresh: this.pullDownRefresh,   //是否下滑刷新
+    // 解决项目首次启动时better-scroll 无法滚动的效果
+    mouseWheel: true,  //开启鼠标滚轮
+    disableMouse: false,  //启用鼠标拖动
+    disableTouch: false,  //启用手指触摸
+    click:true,
    });
    // 监听滚动位置
    this.scroll.on('scroll', position => {
@@ -62,15 +67,15 @@
   },
   methods: {
    // 回到顶部方法
-   scrollTo(x=0, y=0, time = 300) {
+   scrollTo(x = 0, y = 0, time = 300) {
     this.scroll.scrollTo(x, y, time)
    },
    // 停止滑动时
-   scrollEnd(){
+   scrollEnd() {
     this.scroll.scrollEnd()
    },
-  // 上拉加载
-   finishPullUp(){
+   // 上拉加载
+   finishPullUp() {
     this.scroll.finishPullUp()
    },
    //下拉刷新叠加使用

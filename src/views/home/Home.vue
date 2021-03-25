@@ -14,9 +14,9 @@
            @TabClickHandle="TabClickHandle"/>
       <!--流行、新款、精选数据-->
       <Goods v-if="goods.isGetData" :list="goods[goods.type].data"/>
-      <!--回到顶部-->
-      <scroll-top/>
     </Scroll>
+    <!--回到顶部-->
+    <scroll-top v-if="scrollTop.isGetData" @scrollToTop="scrollToTop"/>
   </div>
 </template>
 
@@ -87,7 +87,8 @@
     scrollTop: {
      isGetData: false,  // 是否加载模块,
     },
-    clientHeight: 0,
+    clientHeight: 0,  // 屏幕的高度
+    scrollY:0,   // 滚动的距离
    }
   },
   components: {
@@ -114,11 +115,16 @@
   mounted() {
    // 获取窗口的高度
    this.getClientHeight;
-  },
+ },
   methods: {
    // 滚动时监听位置
    scroll(position) {
-    // console.log(position);
+    this.scrollY =Math.abs( position.y);
+    this.scrollY > 2000 ? this.scrollTop.isGetData = true:this.scrollTop.isGetData = false;
+   },
+   // 回到顶部
+   scrollToTop() {
+    this.$refs.scroll.scrollTo()
    },
    // 下拉刷新
    pullingDown() {

@@ -1,5 +1,5 @@
 <template>
-  <div class="toUp" @click="toUpHandle">
+  <div class="toUp" @click="scrollToTop">
     <img src="~assets/img/home/toUp.png" alt="">
   </div>
 </template>
@@ -8,8 +8,8 @@
  export default {
   name: "scroll-top",
   methods: {
-   toUpHandle() {
-    console.log('点击了回到顶部');
+   scrollToTop() {
+    this.$emit('scrollToTop')
    }
   }
  }
