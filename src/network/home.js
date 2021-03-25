@@ -8,5 +8,6 @@ export const getMultidataData = ()=>{
 
 // 获取流行，精选和新款数据
 export const getDataGoods = (params)=>{
+ console.log(params);
  return axios.get('api/home/data',params)
 }

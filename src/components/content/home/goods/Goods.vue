@@ -16,6 +16,9 @@
  export default {
   name: "goods",
   props:['list'],
+  mounted(){
+   console.log(this.list);
+  },
  }
 </script>
 
